@@ -1,0 +1,7 @@
+type: "file-raw"
+keyType: "SECP256K1"
+# WARNING - DEV VALUE
+# Key for data submission
+# Address: 0xbe7BF8636a32778a15d5549145D18EC3A247390C
+# PublicKey: 0xf3bd19c8f31c6652d03805b2638e4ca41c97a0fd0ced1d2b551cd13f65ad4dc54cbe88ecb0334abe94f2cb60f0589722db752969bc2c86a9bb883e54aacd278f
+privateKey: "0x09a3460655f213d6efa31a8d7813615c6e2e223eba69595ca872f96215540188"

@@ -1,0 +1,7 @@
+type: "file-raw"
+keyType: "SECP256K1"
+# WARNING - DEV VALUE
+# Key for aggregation finalization
+# Address: 0x1542dDF72DBB3c83284B82a49e8A83d6f6D154B1
+# PublicKey: 0x3d0e8e91125bf977e7aae09d02eac6c4964bf3e03b7af6047922e126d5a940169948a61ad53c5d86ac695334d1df1cbf935db81882cca4cbffeaf28be50d0513
+privateKey: "0xc97c882739cbb49c619f716d58d80e15c53f682f9dd455b35a879ecfc9b88f8c"

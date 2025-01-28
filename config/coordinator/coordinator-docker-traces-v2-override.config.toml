@@ -1,0 +1,35 @@
+[prover]
+[prover.execution]
+fs-requests-directory = "/data/prover/v3/execution/requests"
+fs-responses-directory = "/data/prover/v3/execution/responses"
+[prover.blob-compression]
+fs-requests-directory = "/data/prover/v3/compression/requests"
+fs-responses-directory = "/data/prover/v3/compression/responses"
+[prover.proof-aggregation]
+fs-requests-directory = "/data/prover/v3/aggregation/requests"
+fs-responses-directory = "/data/prover/v3/aggregation/responses"
+
+[zk-traces]
+eth-api="http://traces-node:8545"
+
+[traces]
+switch-to-linea-besu=true
+expected-traces-api-version-v2="v0.8.0-rc8"
+blob-compressor-version="V1_0_1"
+[traces.counters-v2]
+endpoints=["http://traces-node:8545/"]
+request-limit-per-endpoint=20
+request-retry.max-retries=10
+request-retry.backoff-delay="PT20S"
+request-retry.failures-warning-threshold=8
+[traces.conflation-v2]
+endpoints=["http://traces-node:8545/"]
+request-limit-per-endpoint=2
+request-retry.max-retries=10
+request-retry.backoff-delay="PT20S"
+request-retry.failures-warning-threshold=8
+
+[dynamic-gas-price-service]
+geth-gas-price-update-recipients=[
+    "http://l2-node:8545/"
+]
