@@ -7,10 +7,10 @@
 - [Environment overview](#environment-overview)
 - [How to run](#how-to-run)
     - [1. Clone the repository](#1-clone-the-repository)
-    - [2. Run the nodes](#3-run-the-nodes)
-    - [3. Deploy L1 and L2 contracts](#4-deploy-l1-l2-contracts)
-    - [4. Run the services](#5-run-the-services)
-    - [5. Obtain "trusted" setup files](#2-obtain-trusted-setup-files)
+    - [2. Run the nodes](#2-run-the-nodes)
+    - [3. Deploy L1 and L2 contracts](#3-deploy-l1-l2-contracts)
+    - [4. Run the services](#4-run-the-services)
+    - [5. Obtain "trusted" setup files](#5-obtain-trusted-setup-files)
         - [Option 1: Download setup files from S3](#a-if-you-have-access-download-the-setup-files-from-our-s3-bucket)
         - [Option 2: Generate setup files from scratch](#b-generate-the-setup-files-from-scratch)
     - [6. Run the prover](#6-run-the-prover)
@@ -114,7 +114,9 @@ docker compose --profile services up -d
 After some short period of time, you should find the zk-evm traces files at `./local.dev/data/traces/l2/conflated`
 directory, as well as proof generation requests at `./local.dev/data/prover`.
 
-### 5. Obtain "trusted" setup files:
+### 5. Obtain trusted setup files:
+
+You can find dummy example in the `./prover-assets` directory.
 
 > [!WARNING]
 > This trusted setup should be used only for development purposes.
@@ -141,6 +143,8 @@ aws s3 cp s3://linea-bucket/linea/dev-edition/prover-assets ./prover-assets --re
    `linea-dev-edition/config/prover/v3/prover-config-full.toml`.
 
 ### 6. Run the prover:
+
+This step isn't possible before the trusted setup files are generated.
 
 > [!Warning]
 >
@@ -404,7 +408,7 @@ conflated trace generation:
 
 1. [**Trace limits**](#trace-limits)
    If adding the new block to the current conflation would cause the number of elements in any column to exceed the
-   specified [trace limits](https://www.notion.so/General-Description-173f2b89fb4a802cadecc979abdaf647?pvs=21).
+   specified [trace limits](#trace-limits).
 
   > [!Warning]
   > Although all services use the same trace limits, the coordinator requires several values to be adjusted in its
@@ -475,8 +479,8 @@ It is also important to mention the triggers for aggregation proof request gener
   conflation-deadline-last-block-confirmation-delay="PT20M"
   ```
 
-3. **Target block**💡
-  > [!Info]
+3. **Target block**
+  > [!NOTE]
   > The same parameter is used as a trigger for the conflation trace generation.
   
   The target blocks in which aggregation will be generated can be specified in the configuration file.
