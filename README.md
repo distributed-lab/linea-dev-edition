@@ -34,7 +34,6 @@
 The entry point is a `docker-compose.yaml` file that describes all the necessary services. It contains several profiles
 that are useful at different steps:
 
-- `prewarm` - run scripts to download and prepare Besu nodes plugins.
 - `nodes` - run several L2 nodes. Three mandatory Besu nodes:
     - `sequencer`,
     - `traces-node`,
