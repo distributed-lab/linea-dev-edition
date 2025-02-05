@@ -199,13 +199,13 @@ public-key="f3bd19c8f31c6652d03805b2638e4ca41c97a0fd0ced1d2b551cd13f65ad4dc54cbe
 type="Web3j"
 
 [l2-signer.web3j]
-private-key="0x52e0a80af195cfb223bf300d416ef064ab48e4459120297202f1f83084196965" # WARNING - DEV VALUE
+private-key="0x762a88a9ab3cb276a02dd6686ab533f1e5febfae487abb08cfb4c17efee676c0" # WARNING - DEV VALUE
 
 [l2-signer.web3signer]
 endpoint="http://web3signer:9000"
 max-pool-size=10
 keep-alive=true
-public-key="4b8328009a8e2de26dbc1fd76cc44373b6438d9acc52cb91ac8039a0fb9e48ce0319f6f981532589e27a2415bd9425adb1f7fdfba9e90abf38f8de2997813803"
+public-key="94b0eebcac4ffa2946a038bcf3e3155db348945231947432cb5cf2611bfab3864f154387962bf90a7b52fbc0c58498d43a58e44d4ce00f8b7b6883733fffee4e"
 
 [message-anchoring-service]
 disabled=false
