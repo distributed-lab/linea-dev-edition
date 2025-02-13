@@ -336,6 +336,28 @@ services:
       devnet:
         ipv4_address: 10.42.0.19
 
+  transaction-exclusion-api:
+    hostname: transaction-exclusion-api
+    container_name: transaction-exclusion-api
+    image: consensys/linea-transaction-exclusion-api:8749f92
+    profiles: [ "services" ]
+    restart: on-failure
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "8082:8080"
+    command: [ 'java', '-Dvertx.configurationFile=config/vertx-options.json', '-Dlog4j2.configurationFile=config/log4j2-dev.xml', '-jar', 'libs/transaction-exclusion-api.jar', 'config/transaction-exclusion-app-docker.config.toml', ]
+    volumes:
+      - ./config/transaction-exclusion-api/transaction-exclusion-app-docker.config.toml:/opt/consensys/linea/transaction-exclusion-api/config/transaction-exclusion-app-docker.config.toml:ro
+      - ./config/transaction-exclusion-api/vertx-options.json:/opt/consensys/linea/transaction-exclusion-api/config/vertx-options.json:ro
+      - ./config/transaction-exclusion-api/log4j2-dev.xml:/opt/consensys/linea/transaction-exclusion-api/config/log4j2-dev.xml:ro
+      - ./local.dev:/data/
+    networks:
+      devnet:
+        ipv4_address: 10.42.0.20
+
+
 networks:
   devnet:
     driver: bridge
