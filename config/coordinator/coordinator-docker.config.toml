@@ -35,7 +35,7 @@ blob-size-limit=102400 # 100KB
 handler-polling-interval="PT1S"
 # default batches limit is  aggregation-proofs-limit -1
 # batches-limit must be less than or equal to aggregation-proofs-limit-1
-batches-limit=9
+batches-limit=6
 
 [zk-traces]
 eth-api="http://traces-node:8545"
@@ -103,12 +103,12 @@ send-message-event-polling-interval="PT1S"
 # 10 blocks worth at 2s per block
 max-event-scraping-time="PT5S"
 # An optional config to define the L1 block time with default as PT12S
-block-time="PT1S" # set the same as local L1 block time
-block-range-loop-limit=500
+block-time="PT12S" # set the same as local L1 block time
+block-range-loop-limit=1000
 max-messages-to-collect=1000
 finalized-block-tag="latest"
 # reset this once we know what to do on dev/UAT
-earliest-block=0
+earliest-block=3291400
 # genesis state root hash of the !ZK-EVM!.
 genesis-state-root-hash="0x0142a1bcc2b48e256551bbfe48621f9582b44da6de405375f4b9d0b713cffab5"
 # shnarf for contract V5
@@ -277,7 +277,7 @@ storage-period="PT2M"
 
 [conflation]
 blocks-limit=1022
-conflation-deadline="PT6H"
+conflation-deadline="PT120M"
 conflation-deadline-check-interval="PT10S"
 conflation-deadline-last-block-confirmation-delay="PT20M" # recommended: at least 2 * blockInterval
 
