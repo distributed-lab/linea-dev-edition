@@ -319,6 +319,23 @@ services:
       devnet:
         ipv4_address: 10.42.0.18
 
+  postman:
+    container_name: postman
+    hostname: postman
+    image: consensys/linea-postman:f58c12a
+    profiles: [ "services" ]
+    platform: linux/amd64
+    restart: on-failure
+    depends_on:
+      sequencer:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    env_file: "./config/postman/env"
+    networks:
+      devnet:
+        ipv4_address: 10.42.0.19
+
 networks:
   devnet:
     driver: bridge
