@@ -1,6 +1,6 @@
 services:
   sequencer:
-    image: consensys/linea-besu-package:mainnet-811f30b
+    image: consensys/linea-besu-package:devnet-395ec6d
     profiles: [ "nodes", "services" ]
     ports:
       - "8545:8545"
