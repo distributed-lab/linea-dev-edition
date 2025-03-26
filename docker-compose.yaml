@@ -1,6 +1,6 @@
 services:
   sequencer:
-    image: consensys/linea-besu-package:devnet-395ec6d
+    image: consensys/linea-besu-package:devnet-395ec6d # check plugins when updating f2ff06c or higher
     profiles: [ "nodes", "services" ]
     ports:
       - "8545:8545"

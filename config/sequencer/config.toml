@@ -45,6 +45,8 @@ api-gas-and-priority-fee-upper-bound-coefficient=300
 poa-block-txs-selection-max-time=1000
 
 # plugins
+# update L1FinalizationTagUpdaterPlugin to LineaL1FinalizationTagUpdaterPlugin, when going f2ff06c or higher
+# according https://github.com/Consensys/linea-monorepo/commit/2f5dd4930e2146b2bb825f7a8b4c6dcca3d912c7
 plugins=["LineaEstimateGasEndpointPlugin","LineaL1FinalizationTagUpdaterPlugin","LineaExtraDataPlugin","LineaTransactionPoolValidatorPlugin","LineaTransactionSelectorPlugin"]
 plugin-linea-module-limit-file-path="/var/lib/besu/traces-limits-v2.toml"
 plugin-linea-deny-list-path="/var/lib/besu/denylist.txt"
