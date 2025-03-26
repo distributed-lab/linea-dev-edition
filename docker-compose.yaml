@@ -75,7 +75,7 @@ services:
         ipv4_address: 10.42.0.13
 
   traces-node:
-    image: consensys/linea-besu-package:devnet-811f30b
+    image: consensys/linea-besu-package:devnet-ceeabfa
     profiles: [ "nodes", "services" ]
     depends_on:
       sequencer:
@@ -117,7 +117,7 @@ services:
         ipv4_address: 10.42.0.15
 
   shomei-node:
-    image: consensys/linea-besu-package:devnet-811f30b
+    image: consensys/linea-besu-package:devnet-fc27c01
     hostname: zkbesu-shomei
     container_name: zkbesu-shomei
     profiles: [ "nodes", "services" ]
@@ -159,7 +159,7 @@ services:
       - shomei-node-data:/opt/besu
 
   shomei:
-    image: consensys/linea-shomei:2.2.0
+    image: consensys/linea-shomei:2.3.0
     profiles: [ "services" ]
     depends_on:
       - shomei-node
@@ -180,7 +180,7 @@ services:
       - --rpc-http-host=10.42.0.16
       - --rpc-http-host-allow-list=*
       - --rpc-http-port=8888
-      - --min-confirmations-before-importing=0
+      - --min-confirmations-before-importing=1 # at least 1, 0 leads to memory leak
       - --trace-start-block-number=0
       - --data-path=/data/shomei
     volumes:
@@ -191,7 +191,7 @@ services:
         ipv4_address: 10.42.0.16
 
   shomei-frontend:
-    image: consensys/linea-shomei:2.2.0
+    image: consensys/linea-shomei:2.3.0
     hostname: shomei-frontend
     container_name: shomei-frontend
     profiles: [ "services" ]
@@ -299,7 +299,7 @@ services:
 
   prover-v3-full: # prover compatible with the traces from zkbesu
     container_name: prover
-    image: consensys/linea-prover:7a67a21
+    image: consensys/linea-prover:cd7228ec # rebuild with MaxNbInstance4096: 2
     platform: linux/amd64
     profiles: [ "full-prover" ]
     working_dir: /linea-monorepo
@@ -322,7 +322,7 @@ services:
   postman:
     container_name: postman
     hostname: postman
-    image: consensys/linea-postman:f58c12a
+    image: consensys/linea-postman:cd7228e
     profiles: [ "services" ]
     platform: linux/amd64
     restart: on-failure
