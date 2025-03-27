@@ -67,7 +67,7 @@ polling-interval="PT1S"
 traces-file-creation-wait-timeout="PT2M"
 
 [state-manager]
-version="2.2.0"
+version="2.3.0"
 endpoints=["http://shomei:8888/"]
 request-limit-per-endpoint=3
 request-retry.backoff-delay="PT2S"
@@ -84,7 +84,7 @@ observability_port=9545
 [l1]
 rpc-endpoint="<YOUR_L1_RPC_URL>"
 zk-evm-contract-address="<YOUR_L1_ZKEVM_CONTRACT_ADDRESS>"
-finalization-polling-interval="PT6S"
+finalization-polling-interval="PT26S"
 l1-query-block-tag="latest"
 gas-limit=10000000
 fee-history-block-count=10
@@ -101,7 +101,7 @@ gas-price-cap-multiplier-for-finalization=2.0
 # blocks are 2s, this may catch in between blocks
 send-message-event-polling-interval="PT1S"
 # 10 blocks worth at 2s per block
-max-event-scraping-time="PT5S"
+max-event-scraping-time="PT25S"
 # An optional config to define the L1 block time with default as PT12S
 block-time="PT12S" # set the same as local L1 block time
 block-range-loop-limit=1000
@@ -209,7 +209,7 @@ public-key="94b0eebcac4ffa2946a038bcf3e3155db348945231947432cb5cf2611bfab3864f15
 
 [message-anchoring-service]
 disabled=false
-polling-interval="PT1S"
+polling-interval="PT21S"
 max-messages-to-anchor=100
 
 [l2-network-gas-pricing]
@@ -252,7 +252,7 @@ geth-gas-price-update-recipients = [
 besu-gas-price-update-recipients = []
 
 [l1-dynamic-gas-price-cap-service]
-disabled=false
+disabled=true
 [l1-dynamic-gas-price-cap-service.gas-price-cap-calculation]
 adjustment-constant=25
 blob-adjustment-constant=25

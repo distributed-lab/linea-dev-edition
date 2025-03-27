@@ -1,6 +1,6 @@
 services:
   sequencer:
-    image: consensys/linea-besu-package:devnet-395ec6d
+    image: consensys/linea-besu-package:devnet-395ec6d # check plugins when updating f2ff06c or higher
     profiles: [ "nodes", "services" ]
     ports:
       - "8545:8545"
@@ -17,13 +17,14 @@ services:
     restart: "no"
     environment:
       LOG4J_CONFIGURATION_FILE: /var/lib/besu/log4j.xml
-      JAVA_OPTS: -XX:+UnlockExperimentalVMOptions -XX:-UseG1GC -XX:+UseZGC
+      JAVA_OPTS: -XX:+UnlockExperimentalVMOptions -XX:-UseG1GC -XX:+UseZGC -Xmx20g -Xss64m
     entrypoint:
       - /bin/bash
       - -c
       - |
         /opt/besu/bin/besu \
         --config-file=/var/lib/besu/config.toml \
+        --nat-method="AUTO" \
         --node-private-key-file="/var/lib/besu/key" \
         --plugin-linea-l1-polling-interval="PT12S" \
         --plugin-linea-l1-smart-contract-address="0x47a64E68563E8e39930391835ab9BE1C0c3Cdb80" \
@@ -95,7 +96,7 @@ services:
     environment:
       LOG4J_CONFIGURATION_FILE: /var/lib/besu/log4j.xml
       # possibly the "-Xms32g -Xss4m" can be reduced
-      JAVA_OPTS: -XX:+UnlockExperimentalVMOptions -XX:-UseG1GC -XX:+UseZGC -Xms32g -Xss4m
+      JAVA_OPTS: -XX:+UnlockExperimentalVMOptions -XX:-UseG1GC -XX:+UseZGC -Xmx80g -Xss128m
       SLACK_SHADOW_NODE_WEBHOOK_URL: "https://example.com"
     entrypoint:
       - /bin/bash
