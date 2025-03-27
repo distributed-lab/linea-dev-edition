@@ -252,7 +252,7 @@ geth-gas-price-update-recipients = [
 besu-gas-price-update-recipients = []
 
 [l1-dynamic-gas-price-cap-service]
-disabled=false
+disabled=true
 [l1-dynamic-gas-price-cap-service.gas-price-cap-calculation]
 adjustment-constant=25
 blob-adjustment-constant=25
