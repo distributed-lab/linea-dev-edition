@@ -243,7 +243,7 @@ extra-data-update-recipient = "http://sequencer:8545/"
 [l2-network-gas-pricing.legacy]
 type="SampleTransaction"
 gas-price-upper-bound = 10000000000 # 10 GWEI
-gas-price-lower-bound = 90000000 # 0.09 GWEI
+gas-price-lower-bound = 1000000  # ~0.001 GWEI
 
 [l2-network-gas-pricing.json-rpc-pricing-propagation]
 geth-gas-price-update-recipients = [
