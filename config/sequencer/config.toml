@@ -8,9 +8,6 @@ host-allowlist=["*"]
 min-gas-price=0
 tx-pool-min-gas-price=0
 max-peers=10
-api-gas-price-blocks=100
-api-gas-price-percentile=50.0
-api-gas-price-max=10000000 # 0.01 GWEI
 
 # engine
 engine-host-allowlist=["*"]
@@ -42,6 +39,9 @@ metrics-port=9545
 
 tx-pool-no-local-priority=false
 #
+api-gas-price-blocks=100
+api-gas-price-percentile=50.0
+api-gas-price-max=10000000 # 0.01 GWEI
 api-gas-and-priority-fee-limiting-enabled=false
 api-gas-and-priority-fee-lower-bound-coefficient=120
 api-gas-and-priority-fee-upper-bound-coefficient=300
