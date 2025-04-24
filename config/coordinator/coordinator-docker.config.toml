@@ -235,7 +235,7 @@ gas-price-fixed-cost = 3000000
 legacy-fees-multiplier = 1.2
 margin = 4.0
 variable-cost-upper-bound = 10000000001 # ~10 GWEI
-variable-cost-lower-bound = 90000001  # ~0.09 GWEI
+variable-cost-lower-bound = 1000000  # ~0.001 GWEI
 
 [l2-network-gas-pricing.extra-data-pricing-propagation]
 extra-data-update-recipient = "http://sequencer:8545/"

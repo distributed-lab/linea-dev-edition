@@ -8,6 +8,9 @@ host-allowlist=["*"]
 min-gas-price=0
 tx-pool-min-gas-price=0
 max-peers=10
+api-gas-price-blocks=100
+api-gas-price-percentile=50.0
+api-gas-price-max=10000000 # 0.01 GWEI
 
 # engine
 engine-host-allowlist=["*"]
@@ -66,7 +69,7 @@ plugin-linea-min-margin="1.0" # WARNING - DEV VALUE
 plugin-linea-fixed-gas-cost-wei=30000000
 plugin-linea-variable-gas-cost-wei=1000000000
 plugin-linea-extra-data-set-min-gas-price-enabled=true
-plugin-linea-estimate-gas-min-margin="1.2   " # WARNING - DEV VALUE
+plugin-linea-estimate-gas-min-margin="1.2" # WARNING - DEV VALUE
 strict-tx-replay-protection-enabled=false
 
 Xplugin-rocksdb-high-spec-enabled=true
