@@ -213,7 +213,7 @@ polling-interval="PT21S"
 max-messages-to-anchor=100
 
 [l2-network-gas-pricing]
-disabled = false
+disabled = true
 price-update-interval = "PT12S"
 
 fee-history-block-count = 50
@@ -231,19 +231,19 @@ backoff-delay = "PT1S"
 failures-warning-threshold = 2
 
 [l2-network-gas-pricing.variable-cost-pricing]
-gas-price-fixed-cost = 3000000
-legacy-fees-multiplier = 1.2
+gas-price-fixed-cost = 1000000
+legacy-fees-multiplier = 1
 margin = 4.0
-variable-cost-upper-bound = 10000000001 # ~10 GWEI
-variable-cost-lower-bound = 90000001  # ~0.09 GWEI
+variable-cost-upper-bound = 10000001 # ~10 GWEI
+variable-cost-lower-bound = 1000  # ~0.001 GWEI
 
 [l2-network-gas-pricing.extra-data-pricing-propagation]
 extra-data-update-recipient = "http://sequencer:8545/"
 
 [l2-network-gas-pricing.legacy]
 type="SampleTransaction"
-gas-price-upper-bound = 10000000000 # 10 GWEI
-gas-price-lower-bound = 90000000 # 0.09 GWEI
+gas-price-upper-bound = 10000001 # 10 GWEI
+gas-price-lower-bound = 1000 # 0.001 GWEI
 
 [l2-network-gas-pricing.json-rpc-pricing-propagation]
 geth-gas-price-update-recipients = [
