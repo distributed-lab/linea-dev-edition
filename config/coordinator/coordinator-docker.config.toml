@@ -84,7 +84,7 @@ observability_port=9545
 [l1]
 rpc-endpoint="<YOUR_L1_RPC_URL>"
 zk-evm-contract-address="<YOUR_L1_ZKEVM_CONTRACT_ADDRESS>"
-finalization-polling-interval="PT26S"
+finalization-polling-interval="PT300S"
 l1-query-block-tag="latest"
 gas-limit=10000000
 fee-history-block-count=10
@@ -99,12 +99,12 @@ max-priority-fee-per-gas-cap=20000000000
 # will always be 2 times higher than that of blob submission txn
 gas-price-cap-multiplier-for-finalization=2.0
 # blocks are 2s, this may catch in between blocks
-send-message-event-polling-interval="PT1S"
+send-message-event-polling-interval="PT30S"
 # 10 blocks worth at 2s per block
 max-event-scraping-time="PT25S"
 # An optional config to define the L1 block time with default as PT12S
 block-time="PT12S" # set the same as local L1 block time
-block-range-loop-limit=1000
+block-range-loop-limit=10000
 max-messages-to-collect=1000
 finalized-block-tag="latest"
 # reset this once we know what to do on dev/UAT
@@ -209,12 +209,12 @@ public-key="94b0eebcac4ffa2946a038bcf3e3155db348945231947432cb5cf2611bfab3864f15
 
 [message-anchoring-service]
 disabled=false
-polling-interval="PT21S"
+polling-interval="PT300S"
 max-messages-to-anchor=100
 
 [l2-network-gas-pricing]
 disabled = false
-price-update-interval = "PT12S"
+price-update-interval = "PT600S"
 
 fee-history-block-count = 50
 fee-history-reward-percentile = 15
